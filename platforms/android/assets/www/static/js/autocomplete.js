@@ -139,7 +139,7 @@
         icon_html = "<img src='" + this.location.icon + "'>";
       }
       if (tag != null) {
-        $el = $("<a href='#'>" + icon_html + tag + ":" + name + "</a>");
+        $el = $("<a href='#'>" + icon_html + tag + ": " + name + "</a>");
         $li_el = $("<li data-icon='minus'></li>");
         $add_el = $("<a href='#' data-rel='popup' data-position-to='window'>" + name + "</a>");
       } else {
@@ -746,43 +746,41 @@
     ContactCompleter.DESCRIPTION = "Contact Addresses";
 
     ContactCompleter.prototype.onSuccessContacts = function(contacts) {
-      var adds, loc, names, _i, _j, _len, _len1, _ref1;
+      var adds, loc, loc_list, names, _i, _j, _len, _len1, _ref1;
+      loc_list = [];
       for (_i = 0, _len = contacts.length; _i < _len; _i++) {
         names = contacts[_i];
         if (names.addresses != null) {
           _ref1 = names.addresses;
           for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
             adds = _ref1[_j];
-            loc = new Location("" + (names.name.formatted.slice(0, names.name.formatted.length - 1)) + "'s House", [null, null]);
+            loc = new Location("" + (names.name.formatted.slice(0, -1)) + "'s House", [null, null]);
             loc.home = adds.formatted;
-            if (this.q !== adds.formatted.toLowerCase()) {
-              if (this.pred_list.length >= 3) {
+            if (this.query !== adds.formatted.toLowerCase()) {
+              if (loc_list.length >= 3) {
                 break;
               }
-              this.pred_list.push(new LocationPrediction(loc));
+              loc_list.push(loc);
             }
           }
         }
       }
-      return this.callbacklater(this.pred_list);
+      return this.submit_location_predictions(loc_list);
     };
 
     ContactCompleter.prototype.onErrorContacts = function(contactError) {
-      return console.log("Error Obtaining Contacts");
+      return this.submit_prediction_failure("Error Obtaining Contacts");
     };
 
-    ContactCompleter.prototype.get_predictions = function(query, callback, args) {
+    ContactCompleter.prototype.fetch_results = function() {
       var fields, options;
-      if (!query.length) {
+      if (!this.query.length) {
         return;
       }
       this.pred_list = [];
-      this.q = query.toLowerCase();
-      this.callbacklater = function(pred_list) {
-        return callback(args, pred_list);
-      };
+      this.query = this.query.toLowerCase();
       options = new ContactFindOptions();
-      options.filter = this.q;
+      options.filter = this.query;
       options.multiple = true;
       fields = ["displayName", "name", "addresses"];
       return navigator.contacts.find(fields, this.onSuccessContacts, this.onErrorContacts, options);
@@ -790,7 +788,7 @@
 
     return ContactCompleter;
 
-  })(Autocompleter);
+  })(RemoteAutocompleter);
 
   supported_completers = {
     poi_categories: new POICategoryCompleter,

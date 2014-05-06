@@ -17,6 +17,12 @@
 # view res/xml/preferences.xml #generated:98
 -keep class com.google.zxing.client.android.pref.BSPlusPreference { <init>(...); }
 
+# view AndroidManifest.xml #generated:35
+-keep class com.red_folder.phonegap.plugin.backgroundservice.BootReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:30
+-keep class com.red_folder.phonegap.plugin.backgroundservice.MyService { <init>(...); }
+
 # view AndroidManifest.xml #generated:6
 -keep class fi.hsl.dev.navigator.Navigator { <init>(...); }
 

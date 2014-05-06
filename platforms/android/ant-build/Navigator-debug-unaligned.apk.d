@@ -3,3 +3,4 @@
 /Users/Icyfer/navigator/platforms/android/ant-build/classes.dex \
 /Users/Icyfer/navigator/platforms/android/CordovaLib/ant-build/classes.jar \
 /Users/Icyfer/navigator/platforms/android/libs/com.google.zxing.client.android.captureactivity.jar \
+/Users/Icyfer/navigator/platforms/android/libs/android-support-v4.jar \

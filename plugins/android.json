@@ -41,6 +41,14 @@
                         {
                             "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"com.red_folder.phonegap.plugin.backgroundservice.MyService\"><intent-filter><action android:name=\"com.red_folder.phonegap.plugin.backgroundservice.MyService\" /></intent-filter></service>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.red_folder.phonegap.plugin.backgroundservice.BootReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>",
+                            "count": 1
                         }
                     ],
                     "/manifest": [
@@ -54,6 +62,14 @@
                         },
                         {
                             "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
                             "count": 1
                         }
                     ]
@@ -79,7 +95,15 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"BackgroundServicePlugin\"><param name=\"android-package\" value=\"com.red_folder.phonegap.plugin.backgroundservice.BackgroundServicePlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"SpeechRecognizer\"><param name=\"android-package\" value=\"com.phonegap.plugins.speech.SpeechRecognizer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -600,7 +624,13 @@
         "com.phonegap.plugins.barcodescanner": {
             "PACKAGE_NAME": "fi.hsl.dev.navigator"
         },
+        "com.red_folder.phonegap.plugin.backgroundservice": {
+            "PACKAGE_NAME": "fi.hsl.dev.navigator"
+        },
         "com.phonegap.plugins.speech": {
+            "PACKAGE_NAME": "fi.hsl.dev.navigator"
+        },
+        "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "fi.hsl.dev.navigator"
         }
     }

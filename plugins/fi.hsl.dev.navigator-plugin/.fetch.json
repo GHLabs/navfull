@@ -1,1 +1,1 @@
-{"source":{"type":"local","path":"../navigator-plugin"}}
+{"source":{"type":"git","url":"https://github.com/dippi/navigator-plugin","subdir":"."}}

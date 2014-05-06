@@ -163,7 +163,7 @@
         }
       ]
     },
-    autocompletion_providers: ["poi_categories", "history", "osm", "google", "contacts", "favourites"]
+    autocompletion_providers: ["poi_categories", "history", "osm", "google"]
   };
 
   manchester = {
@@ -208,7 +208,7 @@
         }
       ]
     },
-    autocompletion_providers: ["poi_categories", "history", "osm", "google", "contacts", "favourites"]
+    autocompletion_providers: ["poi_categories", "history", "osm", "google"]
   };
 
   helsinki = {
@@ -252,7 +252,7 @@
         }
       ]
     },
-    autocompletion_providers: ["poi_categories", "history", "geocoder", "osm", "contacts", "favourites"],
+    autocompletion_providers: ["poi_categories", "favourites", "contacts", "history", "geocoder", "osm"],
     speech_language: "fi-FI"
   };
 
@@ -294,7 +294,7 @@
         }
       ]
     },
-    autocompletion_providers: ["poi_categories", "osm", "bag42", "google", "contacts", "favourites"]
+    autocompletion_providers: ["poi_categories", "osm", "bag42", "google"]
   };
 
   citynavi.update_configs({

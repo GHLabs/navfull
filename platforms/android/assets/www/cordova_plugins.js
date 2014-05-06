@@ -99,10 +99,21 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.red_folder.phonegap.plugin.backgroundservice/www/backgroundService.js",
+        "id": "com.red_folder.phonegap.plugin.backgroundservice.BackgroundService"
+    },
+    {
         "file": "plugins/com.phonegap.plugins.speech/SpeechRecognizer.js",
         "id": "com.phonegap.plugins.speech.SpeechRecognizer",
         "clobbers": [
             "plugins.speechrecognizer"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
+        "id": "org.apache.cordova.splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
         ]
     }
 ];
@@ -115,7 +126,9 @@ module.exports.metadata =
     "org.apache.cordova.contacts": "0.2.10",
     "com.kolwit.pickcontact": "1.0.1",
     "com.phonegap.plugins.barcodescanner": "1.1.0",
-    "com.phonegap.plugins.speech": "1.0.0"
+    "com.red_folder.phonegap.plugin.backgroundservice": "2.0.0",
+    "com.phonegap.plugins.speech": "1.0.0",
+    "org.apache.cordova.splashscreen": "0.3.0"
 }
 // BOTTOM OF METADATA
 });
