@@ -4,22 +4,22 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
-        <title>Monday ContactChooser</title>
+        <title>Contact Picker</title>
     </head>
     <body>
         <div>
-            <h1>Monday ContactChooser</h1>
+            <h1>Contact Picker</h1>
             <div>
                 <button onclick="alertContact()">Get Contact</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="ContactChooser.js"></script>
+        <script type="text/javascript" src="PickContact.js"></script>
         <script>
             function alertContact() {
-                window.plugins.ContactChooser.chooseContact(function(contactInfo) {
+                window.plugins.PickContact.chooseContact(function(contactInfo) {
                     setTimeout(function() { // use timeout to fix iOS alert problem
-                        alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+                        alert(contactInfo.contactID + " " + contactInfo.displayName + " " + contactInfo.emailAddress + " " + contactInfo.phoneNr + " " + contactInfo.address);
                     }, 0);
                 });
             }

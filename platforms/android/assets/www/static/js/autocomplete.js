@@ -98,10 +98,10 @@
           $input.data("selected_location", this.location.name);
           return this.location.fetch_details(navigate_to_location, this.location);
         } else {
-          if (this.location.name.search("House") >= 0) {
+          if (this.location.home != null) {
             $input.val(this.location.home);
           } else {
-            $input.val(this.location.street);
+            $input.val("" + this.location.street + " ");
           }
           $input.focus();
           return $input.trigger("keyup");

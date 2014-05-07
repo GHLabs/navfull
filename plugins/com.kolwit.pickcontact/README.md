@@ -1,6 +1,9 @@
 # PickContact plugin for Cordova 3.x and PhoneGap
 
-This fork edits some files to tailor to a project, such as the display of all contacts, and the retrieved details to only retrieve name, address and email.
+This is a fork from [kolwit's repo](https://github.com/kolwit/com.kolwit.pickcontact). 
+ANDROID FIX ONLY
+The purpose of this fork is for a Android project, which requires the plugin to retrieve the whole list of contacts, and upon selection retrieve the contact ID , contact display name and contact address from the address book in the device.
+Since the retrieval of the names (first name, middle name, last name and formatted name) is buggy, they are removed from the original files.
 
 This plugin is based on the plugins [com.monday.contact-chooser](https://github.com/monday-consulting/ContactChooser) and [org.apache.cordova.contacts](https://github.com/apache/cordova-plugin-contacts)
 It is fully inspired on the ContactChooser plugin, the trigger to get data is the same. The only thing different is the data that is returned. The plugin will return more data, for example phone numbers, emails and adresses (as in the cordova contacts plugin).
@@ -14,7 +17,7 @@ Example Usage
 ```js
 window.plugins.PickContact.chooseContact(function (contactInfo) {
     setTimeout(function () { // use timeout to fix iOS alert problem
-        alert(contactInfo.displayName + " " + contactInfo.emailAddress + " " + contactInfo.phoneNr );
+        alert(contactInfo.contactId + " " + contactInfo.displayName + " " + contactInfo.emailAddress + " " + contactInfo.phoneNr + " " + contactInfo.address);
     }, 0);
 });
 ```
@@ -23,10 +26,10 @@ The method which will return a JSON. Example:
 
 ```json
 {
-    displayName: "John Doe",
-	nameFormated: "John Phil Doe",
+	contactId: "6",
+	displayName: "John Doe",
 	phoneNr: "+55 55 555 55",
-    emailAddress: "john.doe@mail.com",
+	emailAddress: "john.doe@mail.com",
 	address: "Rue 123, Brussels 1000, Belgium",
 	street: "Rue 123",
 	city: "Brussels",
